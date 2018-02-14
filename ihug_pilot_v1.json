@@ -1,0 +1,98 @@
+{
+  "Description": "AWS CloudFormation Template for iHug - Pilot",
+  "Parameters": {},
+  "Resources": {
+     "ApiGateway": {
+        "Type": "AWS::ApiGateway::RestApi",
+          "Properties": {
+            "BodyS3Location": {
+                "Bucket": "api.gateway.ihug.pilot",
+                "Key": "ihug-apigateway-prod.yaml"
+            }
+          }
+     },
+     "ApiGatewayDomain": {
+      
+        "Type": "AWS::ApiGateway::DomainName",
+            "Properties": {
+              "CertificateArn": String,
+              "DomainName": String,
+              "EndpointConfiguration" : EndpointConfiguration,
+              "RegionalCertificateArn" : String
+            }
+      
+     },
+     "CognitoUnAuthorizedRole": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+           "AssumeRolePolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                 {
+                    "Effect": "Allow",
+                    "Principal": {
+                       "Federated": "cognito-identity.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRoleWithWebIdentity",
+                    "Condition": {
+                       "StringEquals": {
+                          "cognito-identity.amazonaws.com:aud": {
+                             "Ref": "IdentityPool"
+                          }
+                       },
+                       "ForAnyValue:StringLike": {
+                          "cognito-identity.amazonaws.com:amr": "unauthenticated"
+                       }
+                    }
+                 }
+              ]
+           },
+           "Policies": [
+              {
+                 "PolicyName": "CognitoUnAuthorizedRolePolicy",
+                 "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                       {
+                          "Effect": "Allow",
+                          "Action": [
+                             "mobileanalytics:PutEvents",
+                             "cognito-sync:*",
+                             "sns:*"
+                          ],
+                          "Resource": [
+                             "*"
+                          ]
+                       }
+                    ]
+                 }
+              }
+           ],
+           "RoleName": "Cognito_ihug_pilot_prodUnauth_Role"
+        }
+     },
+     "IdentityPool": {
+        "Type": "AWS::Cognito::IdentityPool",
+        "Properties": {
+           "IdentityPoolName": "ihug_pilot_prod",
+           "AllowUnauthenticatedIdentities": true
+        }
+     },
+     "IdentityPoolRoleAttachment": {
+        "Type": "AWS::Cognito::IdentityPoolRoleAttachment",
+        "Properties": {
+           "IdentityPoolId": {
+              "Ref": "IdentityPool"
+           },
+           "Roles": {
+              "unauthenticated": {
+                 "Fn::GetAtt": [
+                    "CognitoUnAuthorizedRole",
+                    "Arn"
+                 ]
+              }
+           }
+        }
+     }
+  }
+}
