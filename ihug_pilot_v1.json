@@ -6,7 +6,7 @@
         "Type": "AWS::ApiGateway::RestApi",
           "Properties": {
             "BodyS3Location": {
-                "Bucket": "api.gateway.ihug.pilot",
+                "Bucket": "api.gateway.ihug.pilot.test",
                 "Key": "ihug-apigateway-prod.yaml"
             }
           }
