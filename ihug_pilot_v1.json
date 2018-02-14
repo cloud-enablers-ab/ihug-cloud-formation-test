@@ -11,17 +11,6 @@
             }
           }
      },
-     "ApiGatewayDomain": {
-        "Type": "AWS::ApiGateway::DomainName",
-            "Properties": {
-              "CertificateArn": "arn:aws:acm:eu-west-1:795688276025:certificate/c0c95009-9765-4d48-a527-a906b4c90cf3",
-              "DomainName": "pilot.api.ihug.io",
-              "EndpointConfiguration" : {
-                "Types" : [ "" ]
-              },
-              "RegionalCertificateArn" : String
-            }
-   },
      "CognitoUnAuthorizedRole": {
         "Type": "AWS::IAM::Role",
         "Properties": {
