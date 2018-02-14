@@ -6,7 +6,7 @@
         "Type": "AWS::ApiGateway::RestApi",
           "Properties": {
             "BodyS3Location": {
-                "Bucket": "ihug.template.code.pipeline",
+                "Bucket": "api.gateway.ihug.pilot",
                 "Key": "ihug-apigateway-prod.yaml"
             }
           }
@@ -14,8 +14,9 @@
      "ApiGatewayDomain": {
       "Type": "AWS::ApiGateway::DomainName",
           "Properties": {
-            "CertificateArn": "arn:aws:acm:eu-west-1:795688276025:certificate/c0c95009-9765-4d48-a527-a906b4c90cf3",
+            "CertificateArn": "arn:aws:acm:us-east-1:795688276025:certificate/6c4a8c56-15a1-4b89-9786-ad7e89ffe07b",
             "DomainName": "pilot.api.ihug.io"
+          }
     },
      "CognitoUnAuthorizedRole": {
         "Type": "AWS::IAM::Role",
