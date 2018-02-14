@@ -2,7 +2,7 @@ version: 0.1
 phases:
   install:
     commands:
-      - aws s3api put-object --bucket ihug.template.code.pipeline --key ihug-apigateway-prod.yaml --body ihug-apigateway-prod.yaml    
+      - aws s3api put-object --bucket api.gateway.ihug.pilot --key ihug-apigateway-prod.yaml --body ihug-apigateway-prod.yaml    
       - aws cloudformation package --template-file ihug_pilot_v1.json --s3-bucket awspoclambda
                                    --output-template-file ihug_pilot_v1_template.json
 artifacts:
