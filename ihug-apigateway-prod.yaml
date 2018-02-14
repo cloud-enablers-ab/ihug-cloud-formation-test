@@ -1,0 +1,3501 @@
+---
+swagger: "2.0"
+info:
+  version: "2017-01-09T10:00:38Z"
+  title: "iHug"
+host: "api.ihug.io"
+basePath: "/test"
+schemes:
+- "https"
+paths:
+  /accountrecovery/confirmconfirmationcodeinaccountrecovered/{confirmationCodeAndNewToken}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "confirmationCodeAndNewToken"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.confirmationCodeAndNewToken: "method.request.path.confirmationCodeAndNewToken"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/confirmConfirmationCodeInAccountRecovered/{confirmationCodeAndNewToken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /accountrecovery/createaccountrecoveryandsendsms/{telephoneNumberAndDeviceToken}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephoneNumberAndDeviceToken"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.telephoneNumberAndDeviceToken: "method.request.path.telephoneNumberAndDeviceToken"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createAccountRecoveryAndSendSMS/{telephoneNumberAndDeviceToken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /alarmstatus/createAlarmStatusByRelativeGUID/{guidAndSeenByAndStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "guidAndSeenByAndStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guidAndSeenByAndStatus: "method.request.path.guidAndSeenByAndStatus"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createAlarmStatusByRelativeGUID/{guidAndSeenByAndStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /alarmstatus/getAlarmStatusByRelativeGUID/{GUIDRelative}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelative"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelative: "method.request.path.GUIDRelative"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAlarmStatusByRelativeGUID/{GUIDRelative}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /alarmstatus/updateAlarmStatusByRelativeGUID/{guidAndSeenByAndStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "guidAndSeenByAndStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guidAndSeenByAndStatus: "method.request.path.guidAndSeenByAndStatus"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateAlarmStatusByRelativeGUID/{guidAndSeenByAndStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /alarmstatus/updateAlarmStatusFromRelativeDevice/{guidAndStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "guidAndStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.guidAndStatus: "method.request.path.guidAndStatus"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateAlarmStatusFromRelativeDevice/{guidAndStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /alarmstatus/updateAlarmStatusSeenByContact/{guidAndSeenByContact}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "guidAndSeenByContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.guidAndSeenByContact: "method.request.path.guidAndSeenByContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateAlarmStatusSeenByContact/{guidAndSeenByContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /call/sendpushtocallrelative/{relativedevicetoken}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "relativedevicetoken"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.relativedevicetoken: "method.request.path.relativedevicetoken"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/sendPushToCallRelative/{relativedevicetoken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /conatactuser/createUserContacts:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createUserContacts"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /conatactuser/getUserContactByGUID:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getUserContactByGUID"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /conatactuser/getUserContactByTelephone/{telephone}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephone"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.telephone: "method.request.path.telephone"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getUserContactByTelephone/{telephone}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /conatactuser/updateUserContactDeviceToken/{guidAndDeviceToken}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "guidAndDeviceToken"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guidAndDeviceToken: "method.request.path.guidAndDeviceToken"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateUserContactDeviceToken/{guidAndDeviceToken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /conatactuser/updateUserContactName:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateUserContactName"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /conatactuser/updateUserContactTelephoneNumber/{guidAndTelephone}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "guidAndTelephone"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guidAndTelephone: "method.request.path.guidAndTelephone"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateUserContactTelephoneNumber/{guidAndTelephone}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /config/getsnscredentials:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getSNScredentials"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /confirmationcode/confirmconfirmationcode/{GUIDAndConfirmationCode}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDAndConfirmationCode"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDAndConfirmationCode: "method.request.path.GUIDAndConfirmationCode"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/confirmConfirmationCode/{GUIDAndConfirmationCode}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /confirmationcode/controliftelephonenumberisavailable/{telephoneNumberAndDeviceToken}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephoneNumberAndDeviceToken"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.telephoneNumberAndDeviceToken: "method.request.path.telephoneNumberAndDeviceToken"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/controlIfTelephoneNumberIsAvailable/{telephoneNumberAndDeviceToken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /confirmationcode/createaccountconfirmedandsendsms/{GUIDAndTelephoneNumber}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDAndTelephoneNumber"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDAndTelephoneNumber: "method.request.path.GUIDAndTelephoneNumber"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createAccountConfirmedAndSendSMS/{GUIDAndTelephoneNumber}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /deleteitems/deleteitems/{tableNameAndKeyNameAndValue}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tableNameAndKeyNameAndValue"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.tableNameAndKeyNameAndValue: "method.request.path.tableNameAndKeyNameAndValue"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/deleteItems/{tableNameAndKeyNameAndValue}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /deleteitems/deleteusercontactbytelephone/{telephoneNumber}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephoneNumber"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.telephoneNumber: "method.request.path.telephoneNumber"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/deleteUserContactByTelephone/{telephoneNumber}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /detection/createDetection:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createDetection"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /event/createEvent2/{GUIDSenderAndGUIDReceiverAndEventTypeAndIntervalAndOpenedAndShow}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDSenderAndGUIDReceiverAndEventTypeAndIntervalAndOpenedAndShow"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDSenderAndGUIDReceiverAndEventTypeAndIntervalAndOpenedAndShow: "method.request.path.GUIDSenderAndGUIDReceiverAndEventTypeAndIntervalAndOpenedAndShow"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createEvent2/{GUIDSenderAndGUIDReceiverAndEventTypeAndIntervalAndOpenedAndShow}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /event/getAllEventsByGUID:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAllEventsByGUID"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /event/updateOpenedEventsByContactGUID:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateOpenedEventsByContactGUID"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /event/updateShowEventsByContactGUID:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateShowEventsByContactGUID"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /healthcheck:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        501:
+          description: "501 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*501*.:
+            statusCode: "501"
+          .*500*.:
+            statusCode: "500"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/checkServerHealth"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /heartbeat/createHeartBeat/{GUIDRelativeAndDeviceStatusAndLastHeartBeatAndSensorStatusAndSubscriptionStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndDeviceStatusAndLastHeartBeatAndSensorStatusAndSubscriptionStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelativeAndDeviceStatusAndLastHeartBeatAndSensorStatusAndSubscriptionStatus: "method.request.path.GUIDRelativeAndDeviceStatusAndLastHeartBeatAndSensorStatusAndSubscriptionStatus"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createHeartBeat/{GUIDRelativeAndDeviceStatusAndLastHeartBeatAndSensorStatusAndSubscriptionStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /heartbeat/getAllHeartBeatsByGUIDRelative/{guid}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "guid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guid: "method.request.path.guid"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAllHeartBeatsByGUIDRelative/{guid}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /heartbeat/getHeartbeatByGUID/{guid}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "guid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guid: "method.request.path.guid"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getHeartbeatByGUID/{guid}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /heartbeat/sendheartbeat:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/controlHeartBeats"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /heartbeat/updateHeartbeatDeviceStatusByGUID/{GUIDRelativeAndDeviceStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndDeviceStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelativeAndDeviceStatus: "method.request.path.GUIDRelativeAndDeviceStatus"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateHeartbeatDeviceStatusByGUID/{GUIDRelativeAndDeviceStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /heartbeat/updateHeartbeatLastHeartBeatByGUID/{GUIDRelativeAndLastHeartBeat}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "GUIDRelativeAndLastHeartBeat"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndLastHeartBeat: "method.request.path.GUIDRelativeAndLastHeartBeat"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateHeartbeatLastHeartBeatByGUID/{GUIDRelativeAndLastHeartBeat}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /heartbeat/updateHeartbeatSensorStatusByGUID/{GUIDRelativeAndSensorStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndSensorStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndSensorStatus: "method.request.path.GUIDRelativeAndSensorStatus"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateHeartbeatSensorStatusByGUID/{GUIDRelativeAndSensorStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /heartbeat/updateHeartbeatSubscriptionStatusByGUID/{GUIDRelativeAndSubscriptionStatus}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndSubscriptionStatus"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelativeAndSubscriptionStatus: "method.request.path.GUIDRelativeAndSubscriptionStatus"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateHeartbeatSubscriptionStatusByGUID/{GUIDRelativeAndSubscriptionStatus}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /login/createuserlogin:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createUserLogin"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/acceptMatchRequest/{GUIDRelativeAndGUIDContact}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContact: "method.request.path.GUIDRelativeAndGUIDContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/acceptMatchRequest/{GUIDRelativeAndGUIDContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/controllifrelativecansendrequestfromcontactdevice:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/controllIfRelativeCanSendRequestFromContactDevice"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/controllifrelativecansendrequestfromhomedevice:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/controllIfRelativeCanSendRequestFromHomeDevice"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/createMatch/{GUIDRelativeAndGUIDContactAndIsAcceptedAndReceiveAlarmAndSendAlarm}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContactAndIsAcceptedAndReceiveAlarmAndSendAlarm"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContactAndIsAcceptedAndReceiveAlarmAndSendAlarm: "method.request.path.GUIDRelativeAndGUIDContactAndIsAcceptedAndReceiveAlarmAndSendAlarm"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createMatchRequest/{GUIDRelativeAndGUIDContactAndIsAcceptedAndReceiveAlarmAndSendAlarm}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/createMatchRequest/{telephone}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephone"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.telephone: "method.request.path.telephone"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createMatchRequest/{telephone}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/creatematchrequestfromcontactdevice/{telephoneContact}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephoneContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.telephoneContact: "method.request.path.telephoneContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createMatchRequestFromContactDevice/{telephoneContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/creatematchrequestfromhomedevice/{telephoneContact}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephoneContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.telephoneContact: "method.request.path.telephoneContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createMatchRequestFromHomeDevice/{telephoneContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/deleteMatchByGUID/{GUIDRelativeAndGUIDContact}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContact: "method.request.path.GUIDRelativeAndGUIDContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/deleteMatchByGUID/{GUIDRelativeAndGUIDContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/getAllContactsByGUIDRelativeMatches:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAllContactsByGUIDRelativeMatches"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/getAllMatchesByContactGUID/{GUIDContact}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDContact: "method.request.path.GUIDContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAllMatchesByContactGUID/{GUIDContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/getAllMatchesByRelativeGUID/{GUIDRelative}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelative"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelative: "method.request.path.GUIDRelative"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAllMatchesByRelativeGUID/{GUIDRelative}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/getAllRelativesByGUIDContactMatches:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getAllRelativesByGUIDContactMatches"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/getMatchByGUID/{GUIDRelativeAndGUIDContact}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContact: "method.request.path.GUIDRelativeAndGUIDContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getMatchByGUID/{GUIDRelativeAndGUIDContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /match/updateMatchAcceptedByGUID/{GUIDRelativeAndGUIDContact}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContact"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContact: "method.request.path.GUIDRelativeAndGUIDContact"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateMatchAcceptedByGUID/{GUIDRelativeAndGUIDContact}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/updateMatchReceiveAlarmByGUID/{GUIDRelativeAndGUIDContactAndReceiveAlarm}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContactAndReceiveAlarm"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContactAndReceiveAlarm: "method.request.path.GUIDRelativeAndGUIDContactAndReceiveAlarm"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateMatchReceiveAlarmByGUID/{GUIDRelativeAndGUIDContactAndReceiveAlarm}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /match/updateMatchSendAlarmByGUID/{GUIDRelativeAndGUIDContactAndSendAlarm}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndGUIDContactAndSendAlarm"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndGUIDContactAndSendAlarm: "method.request.path.GUIDRelativeAndGUIDContactAndSendAlarm"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateMatchSendAlarmByGUID/{GUIDRelativeAndGUIDContactAndSendAlarm}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /relativeuser/createUserRelative:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createUserRelative"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /relativeuser/getUserRelativeByGUID/{guid}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "guid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guid: "method.request.path.guid"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getUserRelativeByGUID/{guid}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /relativeuser/updateUserRelativeDeviceToken/{guidAndDeviceToken}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "guidAndDeviceToken"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.guidAndDeviceToken: "method.request.path.guidAndDeviceToken"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateUserRelativeDeviceToken/{guidAndDeviceToken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /relativeuser/updateUserRelativeName:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateUserRelativeName"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /roles/getrolebyguidcontact:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getRoleByGUIDContact"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /screentype/createScreenType/{GUIDRelativeAndScreenType}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "GUIDRelativeAndScreenType"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndScreenType: "method.request.path.GUIDRelativeAndScreenType"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createScreenType/{GUIDRelativeAndScreenType}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /screentype/getScreenTypeByRelativeGUID:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getScreenTypeByRelativeGUID"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /screentype/updateScreenTypeByRelativeGUID/{GUIDRelativeAndScreenType}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "GUIDRelativeAndScreenType"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndScreenType: "method.request.path.GUIDRelativeAndScreenType"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateScreenTypeByRelativeGUID/{GUIDRelativeAndScreenType}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /sms/sendinvitationsms/{telephonenumber}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "telephonenumber"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        401:
+          description: "401 response"
+        501:
+          description: "501 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.telephonenumber: "method.request.path.telephonenumber"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/sendInvitationSMS/{telephonenumber}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /subscription/getreceiptsbytelephonenumber/{TelephoneNumber}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "TelephoneNumber"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.TelephoneNumber: "method.request.path.TelephoneNumber"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getReceiptsByTelephoneNumber/{TelephoneNumber}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /subscription/saveticket:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/saveTicket"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /termsandconditions/createtermsandcondition/{GUIDAndAccepted}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDAndAccepted"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDAndAccepted: "method.request.path.GUIDAndAccepted"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createTermsAndCondition/{GUIDAndAccepted}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /termsandconditions/gettermsandconditionsbyguiduser/{GUID}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUID"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUID: "method.request.path.GUID"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getTermsAndConditionsByGUIDUser/{GUID}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /timesettings/createtimesettings/{GUIDAndStartAndStopAndInterval}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDAndStartAndStopAndInterval"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDAndStartAndStopAndInterval: "method.request.path.GUIDAndStartAndStopAndInterval"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/createTimeSettings/{GUIDAndStartAndStopAndInterval}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/gettimesettingsbyguid:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/getTimeSettingsByGUID"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+  /timesettings/sendpushforchangedtimesettings/{relativetoken}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "relativetoken"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.relativetoken: "method.request.path.relativetoken"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/sendPushForChangedTimeSettings/{relativetoken}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsinterval/{GUIDAndInterval}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDAndInterval"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDAndInterval: "method.request.path.GUIDAndInterval"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsInterval2/{GUIDAndInterval}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsintervalfromcontact/{GUIDRelativeAndInterval}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndInterval"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDRelativeAndInterval: "method.request.path.GUIDRelativeAndInterval"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsIntervalFromContact/{GUIDRelativeAndInterval}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsintervalfromrelative/{interval}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "interval"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.interval: "method.request.path.interval"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsIntervalFromRelative/{interval}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsstartstop/{GUIDAndStartAndStop}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDAndStartAndStop"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.GUIDAndStartAndStop: "method.request.path.GUIDAndStartAndStop"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsStartStop2/{GUIDAndStartAndStop}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsstartstopfromcontact/{GUIDRelativeAndStartAndStop}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeAndStartAndStop"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelativeAndStartAndStop: "method.request.path.GUIDRelativeAndStartAndStop"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsStartStopFromContact/{GUIDRelativeAndStartAndStop}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsstartstopfromcontactwithtimecontrolled/{GUIDRelativeStartStopIntervalIsTimeControlled}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "GUIDRelativeStartStopIntervalIsTimeControlled"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.path.GUIDRelativeStartStopIntervalIsTimeControlled: "method.request.path.GUIDRelativeStartStopIntervalIsTimeControlled"
+          integration.request.header.Authorization: "method.request.header.Authorization"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsStartStopFromContactWithTimeControlled/{GUIDRelativeStartStopIntervalIsTimeControlled}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsstartstopfromrelative/{startAndStop}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "startAndStop"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.startAndStop: "method.request.path.startAndStop"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsStartStopFromRelative/{startAndStop}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+  /timesettings/updatetimesettingsstartstopfromrelativewithtimecontrolled/{startStopIntervalIsTimeControlled}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "startStopIntervalIsTimeControlled"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+        500:
+          description: "500 response"
+        401:
+          description: "401 response"
+        503:
+          description: "503 response"
+        404:
+          description: "404 response"
+        504:
+          description: "504 response"
+      x-amazon-apigateway-integration:
+        responses:
+          .*401*.:
+            statusCode: "401"
+          default:
+            statusCode: "200"
+          .*500*.:
+            statusCode: "500"
+          .*504*.:
+            statusCode: "504"
+          .*503*.:
+            statusCode: "503"
+          .*404*.:
+            statusCode: "404"
+        requestParameters:
+          integration.request.header.Authorization: "method.request.header.Authorization"
+          integration.request.path.startStopIntervalIsTimeControlled: "method.request.path.startStopIntervalIsTimeControlled"
+        uri: "http://docker.ihug.io:8080/homesafebackend/api/updateTimeSettingsStartStopFromRelativeWithTimeControlled/{startStopIntervalIsTimeControlled}"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+definitions:
+  Empty:
+    type: "object"
