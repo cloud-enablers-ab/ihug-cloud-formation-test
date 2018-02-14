@@ -11,17 +11,6 @@
             }
           }
      },
-     "ApiGatewayDomain": {
-      
-        "Type": "AWS::ApiGateway::DomainName",
-            "Properties": {
-              "CertificateArn": String,
-              "DomainName": String,
-              "EndpointConfiguration" : EndpointConfiguration,
-              "RegionalCertificateArn" : String
-            }
-      
-     },
      "CognitoUnAuthorizedRole": {
         "Type": "AWS::IAM::Role",
         "Properties": {
